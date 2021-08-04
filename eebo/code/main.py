@@ -1,3 +1,4 @@
+import json
 import os
 from bs4 import BeautifulSoup as bs
 import sys
@@ -50,8 +51,8 @@ def TXT_to_passimJSON(path_in,final_json):
 		id_ = os.path.basename(path_in).replace(".txt","")
 		series = "not_bible"
 		text = " ".join(f_in.read().replace("\n"," ").replace('"',"'").split())
-		json = '{"id": "'+id_+'", "series": "'+series+'", "text": "'+text+'"}\n' #  yolo
-		f.write(json)
+		result = {'id': id_, 'series': series, 'text': text}
+		print(json.dumps(result), file=f)
 
 	f.close()
 
@@ -99,8 +100,8 @@ if __name__ == "__main__":
 	with open(os.path.join(data_ref,"king_james.txt")) as f:
 		text = " ".join(f.read().replace("\n"," ").split())
 		id_ = "king_james"
-		series = "bible"
-		json = '{"id": "'+id_+'", "series": "'+series+'", "text": "'+text+'"}\n'
+                series = "bible"
+		result = {'id': id_, 'series': series, 'text': text}
 		with open(passim_output_path,"a") as f_out:
-			f_out.write(json)
+			print(json.dumps(result), file=f_out)
 	print("Passim input file written to disk.")
