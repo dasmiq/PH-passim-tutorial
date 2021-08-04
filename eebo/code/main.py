@@ -100,7 +100,7 @@ if __name__ == "__main__":
 	with open(os.path.join(data_ref,"king_james.txt")) as f:
 		text = " ".join(f.read().replace("\n"," ").split())
 		id_ = "king_james"
-                series = "bible"
+		series = "bible"
 		result = {'id': id_, 'series': series, 'text': text}
 		with open(passim_output_path,"a") as f_out:
 			print(json.dumps(result), file=f_out)
