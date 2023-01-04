@@ -12,7 +12,6 @@ Content of this folder:
 - `data`: 
   - impresso sample data, already transformed into a *passim*-friendly JSON format;
   - format: bz2-compressed JSON line documents (each `.bz2` corresponds to one newspaper/year )
-- `schema`: JSON schemas for the impresso sample data;
 - `passim-output`: output obtained when running files in `data/`through *passim*
 
 ### License
