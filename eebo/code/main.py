@@ -50,7 +50,7 @@ def TXT_to_passimJSON(path_in,final_json):
 	with open(path_in) as f_in:
 		id_ = os.path.basename(path_in).replace(".txt","")
 		series = "not_bible"
-		text = " ".join(f_in.read().replace("\n"," ").replace('"',"'").split())
+		text = f_in.read()
 		result = {'id': id_, 'series': series, 'text': text}
 		print(json.dumps(result), file=f)
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
 		TXT_to_passimJSON(file,passim_output_path)
 
 	with open(os.path.join(data_ref,"king_james.txt")) as f:
-		text = " ".join(f.read().replace("\n"," ").split())
+		text = f.read()
 		id_ = "king_james"
 		series = "bible"
 		result = {'id': id_, 'series': series, 'text': text}
